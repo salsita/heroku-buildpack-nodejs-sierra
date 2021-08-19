@@ -55,6 +55,9 @@ source "$BP_DIR/lib/builddata.sh"
 # shellcheck source=lib/yarn-2.sh
 source "$BP_DIR/lib/yarn-2.sh"
 
+# initiate sierra
+source "$BP_DIR/lib/get-sierra.sh" "$BUILD_DIR" "$ENV_DIR"
+
 export PATH="$BUILD_DIR/.heroku/node/bin:$BUILD_DIR/.heroku/yarn/bin":$PATH
 
 LOG_FILE=$(mktemp -t node-build-log.XXXXX)
