@@ -324,6 +324,10 @@ meta_set "build-step" "install-dependencies"
 log_build_scripts "$BUILD_DIR"
 run_prebuild_script "$BUILD_DIR" | output "$LOG_FILE"
 header "Installing dependencies" | output "$LOG_FILE"
+
+# Make sure yarn lock is updated do to the previously unknown directory structure
+yarn install
+
 build_dependencies | output "$LOG_FILE"
 
 cache_build() {
